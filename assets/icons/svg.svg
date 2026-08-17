@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- الخلفية الخضراء بحواف دائرية ناعمة -->
+  <rect width="64" height="64" rx="20" fill="#10B981" />
+  
+  <!-- أيقونة القلب مع خط نبض القلب بالمنتصف -->
+  <path d="M32 46.5S17 37 17 25.5a8.5 8.5 0 0 1 14.5-6.01L32 20l.5-.51A8.5 8.5 0 0 1 47 25.5C47 37 32 46.5 32 46.5z" fill="white" />
+  <path d="M20 29.5h6l2.5-4.5 4 9 3.5-6 2 1.5h6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

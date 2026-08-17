@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/svg.svg">
+    <title> نبض </title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./src/styles/output.css">
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+
+    <!--Start Navbar-->
+
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950">
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3">
+
+            <!--Main Navbar-->
+            <div class="flex items-center justify-between gap-4">
+
+                <!--Logo-->
+                <a href="#home" class="shrink-0">
+
+                    <div class="flex items-center gap-3">
+                        <!-- Logo Icon -->
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-600 text-2xl text-white shadow-lg">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <!-- Website Name -->
+                        <div>
+                            <h1 class="text-xl font-bold text-slate-900 dark:text-white"> نبض </h1>
+
+                            <p class="text-sm text-slate-500 dark:text-slate-400">
+                                بوابة متابعة مرضى القلب
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <!--DeskTop Links-->
+
+                <div class="hidden items-center gap-7 lg:flex">
+
+                    <a href="#home" class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        الرئيسية
+                    </a>
+
+                    <a href="#about"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        عن المنصة
+                    </a>
+
+                    <a href="#conditions"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        أمراض القلب
+                    </a>
+
+                    <a href="#care"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        العناية والوقاية
+                    </a>
+
+                    <a href="#tips"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        نصائح طبيّة
+                    </a>
+
+                </div>
+
+
+                <!--Right Side-->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!--Dark Mod -->
+                    <button id="darkModeToggle" type="button" aria-label="تبديل الوضع الليلي" class="flex h-10 w-10 items-center justify-center
+                      rounded-xl bg-slate-100 text-slate-600 transition-all duration-300
+                     hover:bg-green-50 hover:text-green-600 dark:bg-slate-800 dark:text-slate-300
+                     dark:hover:bg-green-950 dark:hover:text-green-400">
+                        <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+                    </button>
+                    <a href="./pages/login.html" class="hidden lg:flex items-center gap-2 rounded-xl
+                     bg-green-600 px-4 py-2.5 text-sm font-bold text-white
+                     shadow-md shadow-green-600/20 transition-all duration-300
+                     hover:bg-green-700 hover:shadow-lg">
+                        تسجيل الدخول
+                    </a>
+
+                    <!--Mobile Button-->
+                    <button id="menuButton" type="button" class="flex h-10 w-10 items-center justify-center
+                           rounded-xl border border-slate-200 text-slate-700 transition-all duration-300 
+                          hover:border-green-500 hover:text-green-600 dark:border-slate-700 dark:text-slate-200
+                          dark:hover:border-green-500 dark:hover:text-green-400 lg:hidden">
+                        <i id="menuIcon" class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <!--Monile Menu-->
+            <div id="mobileMenu" class="mt-4 hidden border-t border-slate-200 pt-4 dark:border-slate-800 lg:hidden ">
+                <div class="flex flex-col gap-1">
+
+                    <a href="#home"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        الرئيسية
+                    </a>
+
+                    <a href="#about"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        عن المنصة
+                    </a>
+
+                    <a href="#conditions"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        أمراض القلب
+                    </a>
+
+                    <a href="#care"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        العناية والوقاية
+                    </a>
+
+                    <a href="#tips"
+                        class="relative py-2 text-lg font-bold text-slate-700 transition-colors duration-300
+                     hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400
+                       after:absolute after:right-0 after:-bottom-1 after:h-0.5 after:w-0
+                       after:rounded-full after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full dark:after:bg-green-400">
+                        نصائح طبيّة
+                    </a>
+
+                    <a href="./pages/login.html" class="mt-3  items-center justify-center gap-2 rounded-xl bg-green-600 px-4
+                   py-3 text-sm font-bold  text-white shadow-md shadow-green-600/20 transition-all
+                   duration-300 hover:bg-green-700 hover:shadow-lg">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative overflow-hidden bg-white px-6 py-16 transition-colors duration-300 dark:bg-slate-950 lg:px-12 xl:px-20 lg:py-24">
+
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+            <!-- HERO TEXT -->
+            <div class="order-2 text-center lg:order-1 lg:text-right">
+
+                <!-- Small Label -->
+                <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm font-semibold text-green-700 dark:bg-green-950/40 dark:text-green-400">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    رعاية أفضل لصحة القلب
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-5xl xl:text-6xl">
+                    نبض
+                    <span class="text-green-600 dark:text-green-400">لرعاية مرضى القلب</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 lg:mx-0 lg:text-lg">
+                    منصة رقمية متخصصة تساعد الفريق الطبي على متابعة مرضى القلب وتنظيم معلوماتهم الصحية بطريقة واضحة
+                    وسهلة، مع الوصول إلى السجلات الحيوية والمواعيد ومعلومات المرضى في مكان واحد.
+                </p>
+
+                <!-- Buttons -->
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+
+                    <a href="./pages/login.html" class="inline-flex items-center gap-2 rounded-xl bg-green-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-xl">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        الدخول إلى المنصة
+                    </a>
+
+                    <a href="#about" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-bold text-slate-700 transition-all duration-300 hover:border-green-500 hover:text-green-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-green-500 dark:hover:text-green-400">
+                        تعرف على المنصة
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+
+                </div>
+
+                <!-- Features -->
+                <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-slate-500 dark:text-slate-400 lg:justify-start">
+
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-heart text-green-600 dark:text-green-400"></i>
+                        متابعة آمنة
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-user-doctor text-green-600 dark:text-green-400"></i>
+                        للفريق الطبي
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-green-600 dark:text-green-400"></i>
+                        متابعة منظمة
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- HERO IMAGE -->
+            <div class="order-1 lg:order-2">
+
+                <div class=" mx-auto max-w-xl">
+
+                    <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 shadow-2xl shadow-slate-200/50 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/30">
+
+                        <img src="./assets/images/Hero.png" alt="رعاية ومتابعة مرضى القلب" class="h-[360px] w-full object-cover sm:h-[430px] lg:h-[500px]">
+
+                        <div class="absolute inset-x-5 bottom-5 rounded-2xl border border-white/20 bg-white/90 p-4 shadow-lg backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90">
+
+                            <div class="flex items-center gap-3">
+
+                                <div
+                                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-600 text-white">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900 dark:text-white">متابعة صحة القلب</p>
+                                    <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">معلومات منظمة تساعد
+                                        الفريق الطبي</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- END HERO SECTION -->
+
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="bg-slate-50 px-6 py-20 transition-colors duration-300 dark:bg-slate-900 lg:px-12 xl:px-20 lg:py-24">
+
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+            <!-- IMAGE -->
+            <div class="relative">
+
+                <div class="absolute -inset-4 rounded-[2rem] bg-green-100/70 blur-2xl dark:bg-green-950/30"></div>
+
+                <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-950">
+
+                    <img src="./assets/images/about.png" alt="الرعاية الصحية ومتابعة مرضى القلب"
+                        class="h-[360px] w-full object-cover sm:h-[430px] lg:h-[500px]">
+
+                    <!-- IMAGE BADGE -->
+                    <div class="absolute right-5 top-5 flex items-center gap-3 rounded-2xl border border-white/30 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90">
+
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-600 text-white">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">منصة نبض</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">رعاية ومتابعة منظمة</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT -->
+            <div class="text-center lg:text-right">
+
+                <!-- SECTION LABEL -->
+                <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-bold text-green-700 dark:bg-green-950/50 dark:text-green-400">
+                    <i class="fa-solid fa-circle-info"></i>
+                    عن منصة نبض
+                </div>
+
+                <!-- TITLE -->
+                <h2 class="text-3xl font-extrabold leading-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+                    رعاية منظمة تبدأ
+                    <span class="text-green-600 dark:text-green-400">من مكان واحد</span>
+                </h2>
+
+                <!-- DESCRIPTION -->
+                <p class="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300 lg:text-lg">
+                    نبض هي منصة رقمية مخصصة لمساعدة الفريق الطبي على متابعة
+                    مرضى القلب وتنظيم معلوماتهم الصحية بطريقة واضحة وسهلة.
+                    تجمع المنصة بيانات المرضى والسجلات الحيوية والمواعيد
+                    في مكان واحد لتسهيل المتابعة اليومية واتخاذ قرارات أفضل.
+                </p>
+
+
+                <!-- FEATURES -->
+                <div class="mt-8 space-y-4">
+                    <!-- FEATURE 1 -->
+                    <div class="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 text-right transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">متابعة المرضى</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">الوصول إلى معلومات
+                                المرضى وتنظيم بياناتهم بسهولة.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- FEATURE 2 -->
+                    <div class="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 text-right transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">السجلات الحيوية</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">متابعة القراءات الحيوية
+                                السابقة وتسجيل القراءات الجديدة.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- FEATURE 3 -->
+                    <div class="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 text-right transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950 dark:text-green-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">تنظيم المواعيد</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">عرض المواعيد وتنظيم
+                                متابعة المرضى بطريقة واضحة.</p> 
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- END ABOUT SECTION -->
+
+
+    <!-- HEART DISEASES SECTION -->
+    <section id="conditions" class="bg-white px-6 py-20 transition-colors duration-300 dark:bg-slate-950 lg:px-12 xl:px-20 lg:py-24">
+
+        <div class="mx-auto max-w-7xl">
+
+            <!-- SECTION HEADER -->
+            <div class="mx-auto max-w-2xl text-center">
+
+                <div
+                    class="mb-5 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-bold text-green-700 dark:bg-green-950/50 dark:text-green-400">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    أمراض القلب الشائعة
+                </div>
+
+                <h2
+                    class="text-3xl font-extrabold leading-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+                    تعرف على أشهر
+                    <span class="text-green-600 dark:text-green-400">أمراض القلب</span>
+                </h2>
+
+                <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-400 lg:text-lg">
+                    تعرف على مجموعة من الحالات القلبية الشائعة وبعض المعلومات
+                    الأساسية عنها للمساعدة في زيادة الوعي بصحة القلب.
+                </p>
+
+            </div>
+
+
+            <!-- DISEASES GRID -->
+            <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+
+                <!-- HYPERTENSION -->
+                <article
+                    class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-green-900">
+
+                    <div class="relative h-56 overflow-hidden">
+
+                        <img src="./assets/images/1.png" alt="ارتفاع ضغط الدم"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 text-green-600 shadow-md backdrop-blur-sm dark:bg-slate-900/90 dark:text-green-400">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="p-6 text-right">
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                            ارتفاع ضغط الدم
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                            حالة يرتفع فيها ضغط الدم داخل الأوعية الدموية،
+                            وقد تحتاج إلى المتابعة المنتظمة للحفاظ على صحة القلب.
+                        </p>
+
+                        <div
+                            class="mt-5 flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400">
+                            <i class="fa-solid fa-circle-info"></i>
+                            معلومات توعوية
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ARRHYTHMIA -->
+                <article
+                    class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-green-900">
+
+                    <div class="relative h-56 overflow-hidden">
+
+                        <img src="./assets/images/2.png" alt="اضطراب نظم القلب"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 text-green-600 shadow-md backdrop-blur-sm dark:bg-slate-900/90 dark:text-green-400">
+                            <i class="fa-solid fa-wave-square"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="p-6 text-right">
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                            اضطراب نظم القلب
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                            اضطراب في معدل ضربات القلب أو انتظامها،
+                            ويمكن متابعة نظم القلب من خلال الفحوصات والقراءات .
+                        </p>
+
+                        <div
+                            class="mt-5 flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400">
+                            <i class="fa-solid fa-circle-info"></i>
+                            معلومات توعوية
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CORONARY ARTERY DISEASE -->
+                <article
+                    class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-green-900">
+
+                    <div class="relative h-56 overflow-hidden">
+
+                        <img src="./assets/images/3.png" alt="مرض الشريان التاجي"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 text-green-600 shadow-md backdrop-blur-sm dark:bg-slate-900/90 dark:text-green-400">
+                            <i class="fa-solid fa-heart-circle-bolt"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="p-6 text-right">
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                            مرض الشريان التاجي
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                            حالة تتأثر فيها الشرايين التي تغذي عضلة القلب بالدم،
+                            ويمكن متابعتها من خلال الفحوصات والقراءات المناسبة.
+                        <div
+                            class="mt-5 flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400">
+                            <i class="fa-solid fa-circle-info"></i>
+                            معلومات توعوية
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- HEART FAILURE -->
+                <article
+                    class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-green-900">
+
+                    <div class="relative h-56 overflow-hidden">
+
+                        <img src="./assets/images/4.png" alt="فشل القلب"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 text-green-600 shadow-md backdrop-blur-sm dark:bg-slate-900/90 dark:text-green-400">
+                            <i class="fa-solid fa-heart-circle-exclamation"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="p-6 text-right">
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                            فشل القلب
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                            حالة لا يستطيع فيها القلب ضخ الدم بالكفاءة المطلوبة،
+                            وتحتاج إلى متابعة طبية مستمرة وخطة رعاية مناسبة.
+                        </p>
+
+                        <div
+                            class="mt-5 flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400">
+                            <i class="fa-solid fa-circle-info"></i>
+                            معلومات توعوية
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- END HEART DISEASES SECTION -->
+
+
+
+    <!-- CARE & PREVENTION SECTION -->
+    <section id="care"
+        class="bg-slate-50 px-6 py-20 transition-colors duration-300 dark:bg-slate-900 lg:px-12 xl:px-20 lg:py-24">
+
+        <div class="mx-auto max-w-7xl">
+
+            <!-- SECTION HEADER -->
+            <div class="mx-auto max-w-2xl text-center">
+
+                <div
+                    class="mb-5 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-bold text-green-700 dark:bg-green-950/50 dark:text-green-400">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    العناية والوقاية
+                </div>
+
+                <h2
+                    class="text-3xl font-extrabold leading-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+                    اعتنِ بقلبك
+                    <span class="text-green-600 dark:text-green-400">كل يوم</span>
+                </h2>
+
+                <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-400 lg:text-lg">
+                    اتباع العادات الصحية والمتابعة المنتظمة يساعدان في الحفاظ على صحة القلب
+                    وتقليل عوامل الخطر المرتبطة بأمراض القلب.
+                </p>
+
+            </div>
+
+
+            <!-- TIPS -->
+            <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+                <!-- TIP 1 -->
+                <div
+                    class="group rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+
+                    <div
+                        class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-2xl text-green-600 transition-transform duration-300 group-hover:scale-110 dark:bg-green-950/50 dark:text-green-400">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-lg font-bold text-slate-900 dark:text-white">
+                        النشاط البدني
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                        حافظ على نشاطك البدني بانتظام واختر الأنشطة المناسبة لك.
+                    </p>
+
+                </div>
+
+
+                <!-- TIP 2 -->
+                <div
+                    class="group rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+
+                    <div
+                        class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-2xl text-green-600 transition-transform duration-300 group-hover:scale-110 dark:bg-green-950/50 dark:text-green-400">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-lg font-bold text-slate-900 dark:text-white">
+                        غذاء متوازن
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                        اختر غذاءً متوازنًا يحتوي على الخضروات والفواكه والعناصر المفيدة.
+                    </p>
+
+                </div>
+
+
+                <!-- TIP 3 -->
+                <div
+                    class="group rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+
+                    <div
+                        class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-2xl text-green-600 transition-transform duration-300 group-hover:scale-110 dark:bg-green-950/50 dark:text-green-400">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-lg font-bold text-slate-900 dark:text-white">
+                        متابعة المؤشرات
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                        تابع ضغط الدم ومعدل نبض القلب والمؤشرات الصحية بشكل منتظم.
+                    </p>
+
+                </div>
+
+
+                <!-- TIP 4 -->
+                <div
+                    class="group rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950 dark:hover:border-green-900">
+
+                    <div
+                        class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-2xl text-green-600 transition-transform duration-300 group-hover:scale-110 dark:bg-green-950/50 dark:text-green-400">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-lg font-bold text-slate-900 dark:text-white">
+                        المتابعة الطبية
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                        احرص على الفحوصات الدورية واستشر الطبيب عند وجود أي أعراض مقلقة.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTTOM INFO -->
+            <div
+                class="mt-10 flex flex-col items-center justify-between gap-6 rounded-3xl border border-green-100 bg-green-50 p-7 text-center dark:border-green-900/40 dark:bg-green-950/20 md:flex-row md:text-right">
+
+                <div class="flex items-start gap-4">
+
+                    <div
+                        class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-600 text-xl text-white">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-slate-900 dark:text-white">
+                            نصيحة من نبض
+                        </h3>
+
+                        <p class="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                            الوقاية تبدأ بخطوات بسيطة وعادات صحية مستمرة.
+                        </p>
+                    </div>
+
+                </div>
+
+                <a href="#diseases"
+                    class="inline-flex shrink-0 items-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-sm font-bold text-white transition-colors duration-300 hover:bg-green-700">
+                    تعرف على أمراض القلب
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- END CARE & PREVENTION SECTION -->
+
+
+    <!-- MEDICAL TIPS SECTION -->
+    <section id="tips" class="bg-white px-6 py-20 transition-colors duration-300 dark:bg-slate-950 lg:px-12 xl:px-20 lg:py-24">
+
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+            <!-- IMAGE -->
+            <div class="relative order-2 lg:order-1">
+
+                <div class="absolute -inset-4 rounded-[2.5rem] bg-green-100/60 blur-2xl dark:bg-green-950/30"></div>
+
+                <div
+                    class="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900">
+
+                    <img src="./assets/images/5.png" alt="نصائح طبية لصحة القلب"
+                        class="h-[420px] w-full object-cover transition-transform duration-500 hover:scale-105 lg:h-[500px]">
+
+                    <div
+                        class="absolute bottom-5 right-5 flex items-center gap-3 rounded-2xl border border-white/20 bg-white/90 px-5 py-4 shadow-lg backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90">
+
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-green-600 text-lg text-white">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">صحة قلبك أولًا</p>
+                            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">نصائح توعوية للحياة الصحية</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT -->
+            <div class="order-1 text-right lg:order-2">
+
+                <div
+                    class="mb-5 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-bold text-green-700 dark:bg-green-950/50 dark:text-green-400">
+                    <i class="fa-solid fa-notes-medical"></i>
+                    نصائح طبية
+                </div>
+
+                <h2
+                    class="text-3xl font-extrabold leading-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+                    نصائح تساعدك على
+                    <span class="text-green-600 dark:text-green-400">الحفاظ على صحة قلبك</span>
+                </h2>
+
+                <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-400 lg:text-lg">
+                    الاهتمام بصحة القلب يبدأ من العادات اليومية والمتابعة الصحية المنتظمة.
+                    إليك بعض النصائح العامة التي تساعد في الحفاظ على صحة القلب.
+                </p>
+
+
+                <!-- TIPS LIST -->
+                <div class="mt-8 space-y-5">
+
+                    <!-- TIP 1 -->
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950/50 dark:text-green-400">
+                            <i class="fa-solid fa-person-walking"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">
+                                حافظ على نشاطك البدني
+                            </h3>
+
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                مارس النشاط البدني المناسب بانتظام وحافظ على الحركة خلال يومك.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIP 2 -->
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950/50 dark:text-green-400">
+                            <i class="fa-solid fa-apple-whole"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">
+                                اتبع نظامًا غذائيًا متوازنًا
+                            </h3>
+
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                اختر الأطعمة المتنوعة والغنية بالعناصر الغذائية المفيدة لصحة القلب.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIP 3 -->
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950/50 dark:text-green-400">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">
+                                راقب مؤشراتك الحيوية
+                            </h3>
+
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                تابع ضغط الدم ومعدل نبض القلب واحرص على الفحوصات الدورية.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIP 4 -->
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950/50 dark:text-green-400">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">
+                                احرص على المتابعة الطبية
+                            </h3>
+
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                راجع الطبيب بانتظام واتبع الإرشادات الصحية المناسبة لحالتك.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TIP 5 -->
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-600 dark:bg-green-950/50 dark:text-green-400">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">
+                                اهتم بالنوم والراحة
+                            </h3>
+
+                            <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                احصل على قدر كافٍ من النوم وحافظ على روتين يومي متوازن.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- END MEDICAL TIPS SECTION -->
+
+
+    <!-- FOOTER -->
+    <footer
+        class="border-t border-slate-200 bg-slate-50 px-6 py-10 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900 lg:px-12 xl:px-20">
+
+        <div class="mx-auto max-w-7xl">
+
+            <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+
+                <!-- LOGO -->
+                <div class="flex items-center gap-3 text-center md:text-right">
+
+                    <div
+                        class="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-600 text-xl text-white shadow-lg">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+                            نبض
+                        </h2>
+
+                        <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                            بوابة متابعة مرضى القلب
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- LINKS -->
+                <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-semibold">
+
+                    <a href="#about"
+                        class="text-slate-600 transition-colors duration-300 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-400">
+                        عن المنصة
+                    </a>
+
+                    <a href="#conditions"
+                        class="text-slate-600 transition-colors duration-300 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-400">
+                        أمراض القلب
+                    </a>
+
+                    <a href="#care"
+                        class="text-slate-600 transition-colors duration-300 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-400">
+                        العناية والوقاية
+                    </a>
+
+                    <a href="#tips"
+                        class="text-slate-600 transition-colors duration-300 hover:text-green-600 dark:text-slate-400 dark:hover:text-green-400">
+                        النصائح الطبية
+                    </a>
+
+                </nav>
+
+
+                <!-- LOGIN -->
+                <a href="./pages/login.html"
+                    class="inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition-all duration-300 hover:bg-green-700 hover:shadow-lg">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    تسجيل الدخول
+
+                </a>
+
+            </div>
+
+
+            <!-- BOTTOM -->
+            <div
+                class="mt-8 flex flex-col items-center justify-between gap-3 border-t border-slate-200 pt-6 text-center dark:border-slate-800 md:flex-row">
+
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                    © 2026 نبض — جميع الحقوق محفوظة
+                </p>
+
+                <p class="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+                    صُمم لخدمة صحة القلب
+                    <i class="fa-solid fa-heart text-green-600 dark:text-green-400"></i>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- END FOOTER -->
+
+    <script src="./src/js/main.js"></script>
+
+</body>
+
+</html>

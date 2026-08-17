@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="h-full">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="../styles/output.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/svg.svg">
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>المواعيد | نبض</title>
+
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+
+    <div class="min-h-screen">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div id="sidebarOverlay"
+            class="fixed inset-0 z-40 hidden bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden">
+        </div>
+
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 right-0 z-50 flex w-64 translate-x-full flex-col border-l border-slate-200 bg-white shadow-xl transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0 lg:shadow-sm">
+
+            <!-- LOGO & CLOSE BUTTON -->
+            <div class="flex items-center justify-between border-b border-slate-100 px-6 py-5 dark:border-slate-800">
+
+                <a href="../index.html" class="group flex items-center gap-3">
+
+                    <div
+                        class="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-600 text-xl text-white shadow-lg shadow-green-600/20 transition duration-300 group-hover:scale-105 group-hover:rotate-3">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h1 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                            نبض
+                        </h1>
+
+                        <p class="mt-1 text-[11px] text-slate-500 dark:text-slate-400">
+                            بوابة متابعة مرضى القلب
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- CLOSE MOBILE SIDEBAR -->
+                <button id="closeSidebar" type="button" aria-label="إغلاق القائمة"
+                    class="flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden">
+
+                    <i class="fa-solid fa-xmark text-lg"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- DOCTOR INFO -->
+            <div
+                class="mx-4 mt-5 rounded-2xl border border-green-100 bg-green-50 p-4 dark:border-green-900/40 dark:bg-green-950/20">
+
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-600 text-white shadow-sm">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">
+                            الطبيب
+                        </p>
+
+                        <p class="mt-1 text-xs text-green-700 dark:text-green-400">
+                            الطاقم الطبي
+                        </p>
+
+                    </div>
+
+                    <span class="mr-auto h-2.5 w-2.5 rounded-full bg-green-500"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <nav class="flex-1 overflow-y-auto px-4 py-6">
+
+                <p class="mb-3 px-3 text-[10px] font-bold tracking-wide text-slate-400">
+                    القائمة الرئيسية
+                </p>
+
+                <div class="space-y-1.5">
+
+                    <!-- DASHBOARD -->
+                    <a href="./dashboard.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-table-columns w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            لوحة التحكم
+                        </span>
+
+                    </a>
+
+
+                    <!-- PATIENTS -->
+                    <a href="./patients.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-users w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            المرضى
+                        </span>
+
+                    </a>
+
+
+                    <!-- VITAL SIGNS -->
+                    <a href="./vital-signs.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-wave-square w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            العلامات الحيوية
+                        </span>
+
+                    </a>
+
+
+                    <!-- ACTIVE: APPOINTMENTS -->
+                    <a href="./appointments.html"
+                        class="group flex items-center gap-3 rounded-xl bg-green-600 px-4 py-3 text-sm font-bold text-white shadow-md shadow-green-600/10 transition duration-300 hover:bg-green-700 hover:shadow-lg">
+
+                        <i
+                            class="fa-regular fa-calendar-days w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            المواعيد
+                        </span>
+
+                    </a>
+
+
+                    <!-- REPORTS -->
+                    <a href="./Reports.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-chart-line w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            التقارير
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- LOGOUT -->
+            <div class="border-t border-slate-100 p-4 dark:border-slate-800">
+
+                <a href="./login.html"
+                    class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-500 transition duration-300 hover:bg-red-50 hover:text-red-600 dark:text-slate-400 dark:hover:bg-red-950/20 dark:hover:text-red-400">
+
+                    <i
+                        class="fa-solid fa-arrow-right-from-bracket w-5 text-center transition duration-300 group-hover:translate-x-[-3px]"></i>
+
+                    <span>
+                        تسجيل الخروج
+                    </span>
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="min-w-0 lg:mr-64">
+
+            <!-- HEADER / NAVBAR -->
+            <header
+                class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
+
+                <div class="flex h-[72px] items-center justify-between px-5 sm:px-6 lg:px-8">
+
+                    <div class="flex items-center gap-3">
+
+                        <!-- MOBILE TOGGLE BUTTON -->
+                        <button id="openSidebar" type="button" aria-label="فتح القائمة"
+                            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden">
+
+                            <i class="fa-solid fa-bars text-lg"></i>
+
+                        </button>
+
+                        <div>
+
+                            <p class="text-[11px] font-medium text-slate-400">
+                                المواعيد
+                            </p>
+
+                            <p class="mt-0.5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                بوابة متابعة مرضى القلب
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex items-center gap-2">
+
+                        <!-- DARK MODE -->
+                        <button id="darkModeToggle" type="button" aria-label="تغيير الوضع"
+                            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition duration-300 hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-50 hover:text-green-600 dark:border-slate-700 dark:text-slate-400 dark:hover:border-green-700 dark:hover:bg-green-950/30">
+
+                            <i class="fa-solid fa-moon"></i>
+
+                        </button>
+
+
+                        <!-- NOTIFICATIONS -->
+                        <div class="relative">
+
+                            <button id="notificationButton" type="button" aria-label="الإشعارات" aria-expanded="false"
+                                class="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition duration-300 hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-50 hover:text-green-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-green-700 dark:hover:bg-green-950/30">
+
+                                <i class="fa-regular fa-bell text-lg"></i>
+
+                                <span id="notificationBadge"
+                                    class="absolute -right-1 -top-1 hidden h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">
+                                    0
+                                </span>
+
+                            </button>
+
+
+                            <!-- NOTIFICATION PANEL -->
+                            <div id="notificationPanel"
+                                class="absolute left-0 top-12 z-50 hidden w-80 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900">
+
+                                <div
+                                    class="flex items-center justify-between border-b border-slate-100 px-4 py-3 dark:border-slate-700">
+
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">
+                                        الإشعارات
+                                    </h3>
+
+                                    <button id="markAllRead" type="button"
+                                        class="rounded-md bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+                                        تعليم الكل كمقروء
+                                    </button>
+
+                                </div>
+
+
+                                <div class="px-4 py-2">
+
+                                    <p class="text-[11px] text-slate-400">
+                                        غير مقروء:
+                                        <span id="notificationCount">0</span>
+                                    </p>
+
+                                </div>
+
+
+                                <!-- SCROLL -->
+                                <div id="notificationList" class="max-h-[360px] overflow-y-auto px-3 pb-3">
+
+                                    <div
+                                        class="rounded-lg border border-dashed border-slate-200 px-4 py-5 text-center dark:border-slate-700">
+
+                                        <i
+                                            class="fa-regular fa-bell mb-2 text-xl text-slate-300 dark:text-slate-600"></i>
+
+                                        <p class="text-sm font-bold text-slate-700 dark:text-slate-200">
+                                            لا توجد إشعارات
+                                        </p>
+
+                                        <p class="mt-1 text-[11px] leading-5 text-slate-400">
+                                            ستظهر هنا تنبيهات الحالات والمواعيد.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT AREA -->
+            <div class="p-5 sm:p-6 lg:p-8">
+
+                <!-- PAGE TITLE -->
+                <section class="mb-7">
+
+                    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+
+                        <div>
+
+                            <div
+                                class="mb-2 flex items-center gap-2 text-xs font-bold text-green-600 dark:text-green-400">
+                                <span class="h-2 w-2 rounded-full bg-green-500"></span>
+                                مستشفى القلب التخصصي
+                            </div>
+
+                            <h1
+                                class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+                                المواعيد
+                            </h1>
+
+                            <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                أنشئ المواعيد، فلتر السجلات، وتابع جدول الرعاية الخاص بالمرضى.
+                            </p>
+
+                        </div>
+
+                        <button id="resetFormBtn" type="button"
+                            class="flex w-fit items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-600 shadow-sm transition duration-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                            وضع الإضافة
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FORM SECTION: ADD/EDIT APPOINTMENT -->
+                <section
+                    class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+
+                    <div class="mb-6 flex items-center gap-3">
+
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-green-50 text-green-600 dark:bg-green-950/30 dark:text-green-400">
+                            <i class="fa-regular fa-calendar-plus text-lg"></i>
+                        </div>
+
+                        <div>
+
+                            <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
+                                نموذج الموعد
+                            </h2>
+
+                            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                                يتم تسجيل المواعيد وتحديثها مباشرة ضمن جدول الرعاية.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="appointmentForm" class="space-y-4">
+
+                        <div class="grid gap-4 md:grid-cols-4">
+
+                            <!-- PATIENT -->
+                            <div>
+                                <label class="mb-2 block text-xs font-bold text-slate-600 dark:text-slate-300">
+                                    المريض
+                                </label>
+                                <select id="patientSelect"
+                                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-700 dark:bg-slate-950">
+                                    <option value="" selected disabled>اختر المريض</option>
+                                </select>
+                            </div>
+
+                            <!-- DATE -->
+                            <div>
+                                <label class="mb-2 block text-xs font-bold text-slate-600 dark:text-slate-300">
+                                    التاريخ
+                                </label>
+                                <input type="date" id="appointmentDate"
+                                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-700 dark:bg-slate-950">
+                            </div>
+
+                            <!-- TIME -->
+                            <div>
+                                <label class="mb-2 block text-xs font-bold text-slate-600 dark:text-slate-300">
+                                    الوقت
+                                </label>
+                                <input type="time" id="appointmentTime"
+                                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-700 dark:bg-slate-950">
+                            </div>
+
+                            <!-- STATUS -->
+                            <div>
+                                <label class="mb-2 block text-xs font-bold text-slate-600 dark:text-slate-300">
+                                    الحالة
+                                </label>
+                                <select id="appointmentStatus"
+                                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-700 dark:bg-slate-950">
+                                    <option value="مجدول" selected>مجدول</option>
+                                    <option value="عاجل">عاجل</option>
+                                    <option value="مكتمل">مكتمل</option>
+                                    <option value="ملغى">ملغى</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- REASON -->
+                        <div>
+                            <label class="mb-2 block text-xs font-bold text-slate-600 dark:text-slate-300">
+                                السبب
+                            </label>
+                            <input type="text" id="appointmentReason" placeholder="سبب الموعد"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-700 dark:bg-slate-950">
+                        </div>
+
+                        <!-- SUBMIT BUTTON -->
+                        <div>
+                            <button type="submit" id="submitBtn"
+                                class="group inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-6 py-3 text-sm font-bold text-white shadow-md shadow-green-600/10 transition duration-300 hover:-translate-y-0.5 hover:bg-green-700 hover:shadow-lg">
+                                <i class="fa-solid fa-plus transition duration-300 group-hover:scale-110"></i>
+                                إضافة موعد
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- FILTER & SEARCH SECTION -->
+                <section class="mt-6 grid gap-4 md:grid-cols-3">
+
+                    <!-- SEARCH INPUT -->
+                    <div class="relative md:col-span-1">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-4 text-xs text-slate-400"></i>
+                        <input type="text" id="searchInput" placeholder="ابحث باسم المريض أو السبب"
+                            class="w-full rounded-xl border border-slate-200 bg-white py-3 pr-10 pl-4 text-xs font-medium text-slate-700 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
+                    </div>
+
+                    <!-- FILTER BY STATUS -->
+                    <div>
+                        <select id="filterStatus"
+                            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-xs font-medium text-slate-700 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
+                            <option value="الكل" selected>الحالة: الكل</option>
+                            <option value="مجدول">مجدول</option>
+                            <option value="عاجل">عاجل</option>
+                            <option value="مكتمل">مكتمل</option>
+                            <option value="ملغى">ملغى</option>
+                        </select>
+                    </div>
+
+                    <!-- FILTER BY DATE -->
+                    <div>
+                        <input type="date" id="filterDate"
+                            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-xs font-medium text-slate-700 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-500/10 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
+                    </div>
+
+                </section>
+
+
+                <!-- TABLE SECTION -->
+                <section
+                    class="mt-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+
+                    <div class="overflow-x-auto">
+
+                        <table class="w-full min-w-[700px] text-right">
+
+                            <thead>
+                                <tr
+                                    class="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400">
+                                    <th class="px-4 py-4">اسم المريض</th>
+                                    <th class="px-4 py-4">التاريخ</th>
+                                    <th class="px-4 py-4">الوقت</th>
+                                    <th class="px-4 py-4">الحالة</th>
+                                    <th class="px-4 py-4">السبب</th>
+                                    <th class="px-4 py-4 text-center">الإجراءات</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="appointmentsTableBody"
+                                class="divide-y divide-slate-100 text-xs dark:divide-slate-800">
+                                <!-- Populated via JS -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer
+                    class="mt-8 border-t border-slate-200 pt-5 text-center text-xs text-slate-400 dark:border-slate-800">
+
+                    <p>
+                        © 2026 نبض — بوابة متابعة مرضى القلب
+                    </p>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT LINKS -->
+    <script type="module" src="../src/features/appointments/appointments.js"></script>
+
+
+</body>
+
+</html>

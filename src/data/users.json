@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "د. آدم ناصر",
+    "role": "طبيب",
+    "email": "adam@hospital.com",
+    "phone": "0598001001"
+  },
+  {
+    "id": "2",
+    "name": "لينا صالح",
+    "role": "ممرضة",
+    "email": "lina@hospital.com",
+    "phone": "0598001002"
+  },
+  {
+    "id": "3",
+    "name": "عمر خليل",
+    "role": "موظف استقبال",
+    "email": "omar@hospital.com",
+    "phone": "0598001003"
+  }
+]

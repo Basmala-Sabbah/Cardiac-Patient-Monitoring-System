@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>نبض | بوابة متابعة مرضى القلب</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/svg.svg">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../styles/output.css">
+</head>
+
+<body class="min-h-screen bg-white text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+
+    <!-- Start headder-->
+
+    <header class="absolute top-0 right-0 left-0 z-20 flex items-center justify-between px-10 py-6">
+
+        <!--Logo-->
+
+        <div class="flex items-center gap-3">
+
+            <div
+                class="flex w-12 h-12 items-center justify-center rounded-2xl bg-green-600 text-2xl text-white shadow-lg">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h1 class="text-xl font-bold">نبض</h1>
+                <p class="text-sm text-slate-500 dark:text-slate-400">بوابة متابعة مرضى القلب </p>
+            </div>
+        </div>
+
+        <!--Dark Mode Button -->
+        <button id="themeToggle" type="button" aria-label="تغيير الوضع "
+            class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-lg shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800 ">
+            <span id="themeIcon">
+                <i class="fa-solid fa-moon"></i>
+            </span>
+        </button>
+    </header>
+
+
+    <!-- End headder-->
+
+
+
+    <!--Start Main-->
+
+    <main class="relative min-h-screen overflow-hidden bg-cover bg-center"
+        style="background-image: url('../assets/images/Hedear_image.png');">
+
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-white/75 dark:bg-slate-950/80"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-8 py-32 lg:grid-cols-2">
+
+            <!--introduction-->
+
+            <section class="order-1">
+
+                <!--Badge-->
+                <div
+                    class="mb-6 inline-flex items-center gap-2 rounded-full bg-green-50 px-5 py-2 text-sm font-semibold text-gray-700 dark:bg-green-950 dark:text-green-400 ">
+
+                    <span class="h-2 w-2 rounded-full bg-green-500"></span>
+                    نظام ذكي لمتابعة صحة القلب
+
+                </div>
+
+                <!--Main heading-->
+
+                <h2 class="max-w-2xl text-5xl font-black leading-tight text-slate-900 dark:text-white ">
+                    رعاية أفضل تبدأ
+
+                    <span class="text-green-600">بمتابعة أدق </span>
+                </h2>
+
+                <!--Description-->
+
+                <p class="mt-7 max-w-xl text-lg leading-9 text-slate-600 dark:text-slate-300 ">
+                    منصة رقمية تساعد الفريق الطبي على متابعة مرضى القلب
+                    وتنظيم بيانات المرضى والعلامات الحيوية والمواعيد
+                    من مكان واحد.
+                </p>
+
+
+                <!--Cards-->
+
+                <div class="mt-10 grid grid-cols-3 gap-5">
+
+                    <!--Card1-->
+
+                    <div
+                        class="rounded-2xl hover:cursor-pointer border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900  ">
+
+                        <div class="mb-4 text-2xl text-green-600 ">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </div>
+
+                        <h3 class="font-bold">
+                            متابعة مستمرة
+                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400 ">
+                            متابعة بيانات المرضى بشكل مستمر
+                        </p>
+                    </div>
+
+
+                    <!-- Card 2 -->
+
+                    <div
+                        class="rounded-2xl hover:cursor-pointer border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+
+                        <div class="mb-4 text-2xl text-green-600">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <h3 class="font-bold">
+                            سجلات حيوية
+                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                            قراءات منظمة وسهلة المتابعة.
+                        </p>
+
+                    </div>
+
+                    <!-- Card 3 -->
+
+                    <div
+                        class="rounded-2xl hover:cursor-pointer border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+
+                        <div class="mb-4 text-2xl text-green-600">
+                            <i class="fa-solid fa-user-clock"></i>
+                        </div>
+
+                        <h3 class="font-bold">
+                            مواعيد منظمة
+                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                            تنظيم المتابعات والمواعيد
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!--user Selection-->
+
+            <section class="order-2">
+
+                <div
+                    class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl dark:border-slate-800 dark:bg-slate-900 ">
+
+                    <!--Card Header-->
+
+                    <div class="mb-8">
+
+                        <p class="font-semibold text-green-600">
+                            الدخول حسب القسم
+                        </p>
+
+                        <h2 class="mt-2 text-3xl font-black">
+                            اختر مساحة العمل
+                        </h2>
+
+                        <p class="mt-3 leading-7 text-slate-500 dark:text-slate-400">
+                            اختر نوع المستخدم للانتقال الى لوحة التحكم المناسبة
+                        </p>
+
+                    </div>
+
+                    <!--Doctor-->
+                    <button type="button"
+                        class="user-card mb-4 flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 text-right transition duration-300 hover: -translate-y-1 hover:border-green-500 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 "
+                        data-role="doctor" data-user-id="1">
+                        <div class="flex items-center gap-4">
+
+                            <div
+                                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-2xl text-green-600 dark:bg-green-950 ">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-bold">
+                                    الطاقم الطبّي
+                                </h3>
+
+                                <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                    متابعة المرضى والتفاصيل الطبية والسجلات الحيوية
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <span class="text-2xl text-green-600">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                        </span>
+
+                    </button>
+
+
+                    <!--Nurse-->
+                    <button type="button"
+                        class="user-card mb-4 flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 text-right transition duration-300 hover: -translate-y-1 hover:border-green-500 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 "
+                        data-role="doctor" data-user-id="1">
+                        <div class="flex items-center gap-4">
+
+                            <div
+                                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-2xl text-green-600 dark:bg-green-950 ">
+                                <i class="fa-solid fa-user-nurse"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-bold">
+                                    التمريض
+                                </h3>
+
+                                <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                    متابعة الرعاية اليومية والقراءات الحيوية
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <span class="text-2xl text-green-600">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                        </span>
+
+                    </button>
+
+                    <!--Receptions-->
+                    <button type="button"
+                        class="user-card mb-4 flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 text-right transition duration-300 hover: -translate-y-1 hover:border-green-500 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 "
+                        data-role="doctor" data-user-id="1">
+                        <div class="flex items-center gap-4">
+
+                            <div
+                                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-2xl text-green-600 dark:bg-green-950 ">
+                                <i class="fa-solid fa-user-clock"></i>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-bold">
+                                    الاستقبال
+                                </h3>
+
+                                <p class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                    تنظيم المواعيد وبيانات التسجيل
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <span class="text-2xl text-green-600">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                        </span>
+
+                    </button>
+
+                    <!-- Note -->
+                    <p class="mt-7 text-center text-xs leading-6 text-slate-400">
+                        هذه البوابة مخصصة لتنظيم سير العمل اليومي ومتابعة الحالات بين أقسام المستشفى
+                    </p>
+
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <script src="../src/js/main.js"></script>
+
+</body>
+
+</html>

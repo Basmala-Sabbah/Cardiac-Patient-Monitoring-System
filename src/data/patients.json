@@ -1,0 +1,12 @@
+[
+  {"id":"1","name":"أحمد خليل","age":58,"gender":"ذكر","phone":"0599001001","bloodType":"A+","condition":"مستقرة","diagnosis":"ارتفاع ضغط الدم","heartRate":78,"bloodPressure":"125/80","oxygenLevel":97,"doctorId":"1"},
+  {"id":"2","name":"سارة ناصر","age":46,"gender":"أنثى","phone":"0599001002","bloodType":"O+","condition":"تحتاج إلى متابعة","diagnosis":"اضطراب نظم القلب","heartRate":102,"bloodPressure":"135/85","oxygenLevel":95,"doctorId":"1"},
+  {"id":"3","name":"محمد صالح","age":67,"gender":"ذكر","phone":"0599001003","bloodType":"B+","condition":"حرجة","diagnosis":"مرض الشريان التاجي","heartRate":115,"bloodPressure":"155/95","oxygenLevel":91,"doctorId":"1"},
+  {"id":"4","name":"لينا أحمد","age":52,"gender":"أنثى","phone":"0599001004","bloodType":"AB+","condition":"مستقرة","diagnosis":"ارتفاع ضغط الدم","heartRate":74,"bloodPressure":"120/78","oxygenLevel":98,"doctorId":"1"},
+  {"id":"5","name":"عمر علي","age":61,"gender":"ذكر","phone":"0599001005","bloodType":"O-","condition":"تحتاج إلى متابعة","diagnosis":"اضطراب نظم القلب","heartRate":98,"bloodPressure":"140/88","oxygenLevel":94,"doctorId":"1"},
+  {"id":"6","name":"مريم حسن","age":43,"gender":"أنثى","phone":"0599001006","bloodType":"A-","condition":"مستقرة","diagnosis":"ارتفاع ضغط الدم","heartRate":72,"bloodPressure":"118/76","oxygenLevel":99,"doctorId":"1"},
+  {"id":"7","name":"يوسف ناصر","age":70,"gender":"ذكر","phone":"0599001007","bloodType":"B-","condition":"حرجة","diagnosis":"قصور القلب","heartRate":120,"bloodPressure":"160/100","oxygenLevel":89,"doctorId":"1"},
+  {"id":"8","name":"رنا خالد","age":49,"gender":"أنثى","phone":"0599001008","bloodType":"AB-","condition":"مستقرة","diagnosis":"اضطراب نظم القلب","heartRate":82,"bloodPressure":"122/79","oxygenLevel":97,"doctorId":"1"},
+  {"id":"9","name":"خالد محمود","age":64,"gender":"ذكر","phone":"0599001009","bloodType":"A+","condition":"تحتاج إلى متابعة","diagnosis":"مرض الشريان التاجي","heartRate":96,"bloodPressure":"145/90","oxygenLevel":93,"doctorId":"1"},
+  {"id":"10","name":"نور سمير","age":55,"gender":"أنثى","phone":"0599001010","bloodType":"O+","condition":"مستقرة","diagnosis":"ارتفاع ضغط الدم","heartRate":76,"bloodPressure":"121/77","oxygenLevel":98,"doctorId":"1"}
+]

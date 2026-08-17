@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="h-full">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="../styles/output.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/svg.svg">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>تفاصيل المريض | نبض</title>
+
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+
+    <div class="min-h-screen">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div id="sidebarOverlay"
+            class="fixed inset-0 z-40 hidden bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden">
+        </div>
+
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 right-0 z-50 flex w-64 translate-x-full flex-col border-l border-slate-200 bg-white shadow-xl transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0 lg:shadow-sm">
+
+            <!-- LOGO & CLOSE BUTTON -->
+            <div class="flex items-center justify-between border-b border-slate-100 px-6 py-5 dark:border-slate-800">
+
+                <a href="../index.html" class="group flex items-center gap-3">
+
+                    <div
+                        class="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-600 text-xl text-white shadow-lg shadow-green-600/20 transition duration-300 group-hover:scale-105 group-hover:rotate-3">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h1 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                            نبض
+                        </h1>
+
+                        <p class="mt-1 text-[11px] text-slate-500 dark:text-slate-400">
+                            بوابة متابعة مرضى القلب
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- CLOSE MOBILE SIDEBAR -->
+                <button id="closeSidebar" type="button" aria-label="إغلاق القائمة"
+                    class="flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden">
+
+                    <i class="fa-solid fa-xmark text-lg"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- DOCTOR INFO -->
+            <div
+                class="mx-4 mt-5 rounded-2xl border border-green-100 bg-green-50 p-4 dark:border-green-900/40 dark:bg-green-950/20">
+
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-600 text-white shadow-sm">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">
+                            الطبيب
+                        </p>
+
+                        <p class="mt-1 text-xs text-green-700 dark:text-green-400">
+                            الطاقم الطبي
+                        </p>
+
+                    </div>
+
+                    <span class="mr-auto h-2.5 w-2.5 rounded-full bg-green-500"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <nav class="flex-1 overflow-y-auto px-4 py-6">
+
+                <p class="mb-3 px-3 text-[10px] font-bold tracking-wide text-slate-400">
+                    القائمة الرئيسية
+                </p>
+
+                <div class="space-y-1.5">
+
+                    <!-- DASHBOARD -->
+                    <a href="./dashboard.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-table-columns w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            لوحة التحكم
+                        </span>
+
+                    </a>
+
+
+                    <!-- PATIENTS ACTIVE -->
+                    <a href="./patients.html"
+                        class="group flex items-center gap-3 rounded-xl bg-green-600 px-4 py-3 text-sm font-bold text-white shadow-md shadow-green-600/10 transition duration-300 hover:bg-green-700 hover:shadow-lg">
+
+                        <i
+                            class="fa-solid fa-users w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            المرضى
+                        </span>
+
+                    </a>
+
+
+                    <!-- VITAL SIGNS -->
+                    <a href="./vital-signs.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-wave-square w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            العلامات الحيوية
+                        </span>
+
+                    </a>
+
+
+                    <!-- APPOINTMENTS -->
+                    <a href="./appointments.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-regular fa-calendar-days w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            المواعيد
+                        </span>
+
+                    </a>
+
+
+                    <!-- REPORTS -->
+                    <a href="./Reports.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-chart-line w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            التقارير
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- LOGOUT -->
+            <div class="border-t border-slate-100 p-4 dark:border-slate-800">
+
+                <a href="./login.html"
+                    class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-500 transition duration-300 hover:bg-red-50 hover:text-red-600 dark:text-slate-400 dark:hover:bg-red-950/20 dark:hover:text-red-400">
+
+                    <i
+                        class="fa-solid fa-arrow-right-from-bracket w-5 text-center transition duration-300 group-hover:translate-x-[-3px]"></i>
+
+                    <span>
+                        تسجيل الخروج
+                    </span>
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="min-w-0 lg:mr-64">
+
+            <!-- HEADER -->
+            <header
+                class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
+
+                <div class="flex h-[72px] items-center justify-between px-5 sm:px-6 lg:px-8">
+
+                    <div class="flex items-center gap-3">
+
+                        <!-- MOBILE TOGGLE BUTTON -->
+                        <button id="openSidebar" type="button" aria-label="فتح القائمة"
+                            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden">
+
+                            <i class="fa-solid fa-bars text-lg"></i>
+
+                        </button>
+
+                        <div>
+
+                            <p class="text-[11px] font-medium text-slate-400">
+                                تفاصيل المريض
+                            </p>
+
+                            <p class="mt-0.5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                بوابة متابعة مرضى القلب
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex items-center gap-2">
+
+                        <!-- DARK MODE -->
+                        <button id="darkModeToggle" type="button" aria-label="تغيير الوضع"
+                            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition duration-300 hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-50 hover:text-green-600 dark:border-slate-700 dark:text-slate-400 dark:hover:border-green-700 dark:hover:bg-green-950/30">
+
+                            <i class="fa-solid fa-moon"></i>
+
+                        </button>
+
+
+                        <!-- NOTIFICATIONS -->
+                        <div class="relative">
+
+                            <button id="notificationButton" type="button" aria-label="الإشعارات" aria-expanded="false"
+                                class="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition duration-300 hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-50 hover:text-green-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-green-700 dark:hover:bg-green-950/30">
+
+                                <i class="fa-regular fa-bell text-lg"></i>
+
+                                <span id="notificationBadge"
+                                    class="absolute -right-1 -top-1 hidden h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">
+                                    0
+                                </span>
+
+                            </button>
+
+
+                            <!-- NOTIFICATION PANEL -->
+                            <div id="notificationPanel"
+                                class="absolute left-0 top-12 z-50 hidden w-80 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900">
+
+                                <div
+                                    class="flex items-center justify-between border-b border-slate-100 px-4 py-3 dark:border-slate-700">
+
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">
+                                        الإشعارات
+                                    </h3>
+
+                                    <button id="markAllRead" type="button"
+                                        class="rounded-md bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+                                        تعليم الكل كمقروء
+                                    </button>
+
+                                </div>
+
+
+                                <div class="px-4 py-2">
+
+                                    <p class="text-[11px] text-slate-400">
+                                        غير مقروء:
+                                        <span id="notificationCount">0</span>
+                                    </p>
+
+                                </div>
+
+
+                                <div id="notificationList" class="max-h-[360px] overflow-y-auto px-3 pb-3">
+
+                                    <div
+                                        class="rounded-lg border border-dashed border-slate-200 px-4 py-5 text-center dark:border-slate-700">
+
+                                        <i
+                                            class="fa-regular fa-bell mb-2 text-xl text-slate-300 dark:text-slate-600"></i>
+
+                                        <p class="text-sm font-bold text-slate-700 dark:text-slate-200">
+                                            لا توجد إشعارات
+                                        </p>
+
+                                        <p class="mt-1 text-[11px] leading-5 text-slate-400">
+                                            ستظهر هنا تنبيهات الحالات والمواعيد.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <div class="p-5 sm:p-6 lg:p-8">
+
+                <!-- PAGE HEADER -->
+                <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+                    <div>
+                        <h1 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+                            تفاصيل السجل الطبي
+                        </h1>
+
+                        <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                            تفاصيل السجل تظهر حسب صلاحية المستخدم الحالي.
+                        </p>
+                    </div>
+
+                    <a href="./patients.html"
+                        class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs font-bold text-slate-700 shadow-sm transition hover:border-green-300 hover:bg-green-50 hover:text-green-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>العودة إلى المرضى</span>
+                    </a>
+
+                </div>
+
+                <!-- LOADING -->
+                <div id="loadingState"
+                    class="flex min-h-[360px] items-center justify-center rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-green-600 dark:border-slate-700 dark:border-t-green-500">
+                        </div>
+
+                        <p class="mt-4 text-xs font-bold text-slate-400">
+                            جاري جلب الملف الطبي...
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- PATIENT DETAILS -->
+                <div id="patientDetailsContent" class="hidden space-y-7">
+
+                    <!-- PATIENT INFORMATION -->
+                    <section
+                        class="mb-5 mt-2 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                        <!-- SECTION HEADER -->
+                        <div class="flex justify-between border-b border-slate-100 px-6 py-5 dark:border-slate-800">
+                            <h2 class="text-lg font-black text-slate-900 dark:text-white">
+                                بيانات المريض
+                            </h2>
+
+                            <button id="printReportBtn" onclick="window.print()"
+                                class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-md dark:bg-emerald-600 dark:hover:bg-emerald-500 print:hidden">
+                                <i class="fa-solid fa-print"></i>
+                                <span>طباعة التقرير</span>
+                            </button>
+                        </div>
+
+                        <!-- PATIENT DATA -->
+                        <div class="p-6">
+                            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+                                <!-- NAME -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        اسم المريض
+                                    </p>
+                                    <p id="patientName" class="text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                                <!-- AGE -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        العمر
+                                    </p>
+                                    <p id="patientAge" class="text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                                <!-- GENDER -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        الجنس
+                                    </p>
+                                    <p id="patientGender" class="text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                                <!-- PHONE -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        الهاتف
+                                    </p>
+                                    <p id="patientPhone" dir="ltr"
+                                        class="text-right text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                                <!-- BLOOD -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        فصيلة الدم
+                                    </p>
+                                    <p id="patientBlood" class="text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                                <!-- CONDITION -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        الحالة
+                                    </p>
+                                    <div id="patientStatusBadge">
+                                        --
+                                    </div>
+                                </div>
+
+                                <!-- DOCTOR ID -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        رقم الطبيب
+                                    </p>
+                                    <p id="doctorId" class="text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                                <!-- DOCTOR NAME -->
+                                <div class="rounded-2xl bg-slate-50 p-5 dark:bg-slate-950">
+                                    <p class="mb-2 text-xs font-bold text-slate-400">
+                                        الطبيب
+                                    </p>
+                                    <p id="doctorName" class="text-base font-black text-slate-900 dark:text-white">
+                                        --
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- DIAGNOSIS -->
+                            <div
+                                class="mt-5 rounded-2xl border border-green-100 bg-green-50 p-5 dark:border-green-900/40 dark:bg-green-950/20">
+                                <p class="mb-2 text-xs font-bold text-green-700 dark:text-green-400">
+                                    التشخيص
+                                </p>
+                                <p id="patientDiagnosis"
+                                    class="text-base font-black text-green-900 dark:text-green-300">
+                                    --
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- VITAL SIGNS -->
+                    <section
+                        class="mb-5 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                        <div class="border-b border-slate-100 px-6 py-5 dark:border-slate-800">
+                            <h2 class="text-lg font-black text-slate-900 dark:text-white">
+                                العلامات الحيوية
+                            </h2>
+
+                            <p class="mt-1 text-xs text-slate-400">
+                                قراءات سريرية مسجلة
+                            </p>
+                        </div>
+
+                        <div class="grid gap-5 p-6 md:grid-cols-3">
+
+                            <!-- HEART RATE -->
+                            <div
+                                class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-xs font-bold text-slate-400">
+                                        نبض القلب
+                                    </p>
+                                    <i class="fa-solid fa-heart-pulse text-lg text-green-600"></i>
+                                </div>
+
+                                <p id="vitalHeartRate" class="mt-4 text-2xl font-black text-slate-900 dark:text-white">
+                                    --
+                                </p>
+
+                                <p class="mt-1 text-[11px] text-slate-400">
+                                    آخر قراءة مسجلة
+                                </p>
+                            </div>
+
+                            <!-- BLOOD PRESSURE -->
+                            <div
+                                class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-xs font-bold text-slate-400">
+                                        ضغط الدم
+                                    </p>
+                                    <i class="fa-solid fa-gauge-high text-lg text-green-600"></i>
+                                </div>
+
+                                <p id="vitalBloodPressure"
+                                    class="mt-4 text-2xl font-black text-slate-900 dark:text-white">
+                                    --
+                                </p>
+
+                                <p class="mt-1 text-[11px] text-slate-400">
+                                    انقباضي / انبساطي
+                                </p>
+                            </div>
+
+                            <!-- OXYGEN -->
+                            <div
+                                class="rounded-2xl border border-slate-100 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-xs font-bold text-slate-400">
+                                        مستوى الأكسجين
+                                    </p>
+                                    <i class="fa-solid fa-lungs text-lg text-green-600"></i>
+                                </div>
+
+                                <p id="vitalOxygen" class="mt-4 text-2xl font-black text-slate-900 dark:text-white">
+                                    --
+                                </p>
+
+                                <p class="mt-1 text-[11px] text-slate-400">
+                                    قراءة SpO2
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- APPOINTMENTS -->
+                    <section
+                        class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                        <div class="border-b border-slate-100 px-6 py-5 dark:border-slate-800">
+                            <h2 class="text-lg font-black text-slate-900 dark:text-white">
+                                المواعيد المرتبطة
+                            </h2>
+
+                            <p class="mt-1 text-xs text-slate-400">
+                                مواعيد مرتبطة بسجل المريض
+                            </p>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-[650px] text-right">
+                                <thead>
+                                    <tr
+                                        class="border-b border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+                                        <th class="px-6 py-4 text-xs font-black text-slate-500 dark:text-slate-400">
+                                            التاريخ
+                                        </th>
+                                        <th class="px-6 py-4 text-xs font-black text-slate-500 dark:text-slate-400">
+                                            الوقت
+                                        </th>
+                                        <th class="px-6 py-4 text-xs font-black text-slate-500 dark:text-slate-400">
+                                            الحالة
+                                        </th>
+                                        <th class="px-6 py-4 text-xs font-black text-slate-500 dark:text-slate-400">
+                                            السبب
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="appointmentsTableBody">
+                                    <tr>
+                                        <td id="appointmentDate"
+                                            class="px-6 py-5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                            --
+                                        </td>
+                                        <td id="appointmentTime"
+                                            class="px-6 py-5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                            --
+                                        </td>
+                                        <td id="appointmentStatus"
+                                            class="px-6 py-5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                            --
+                                        </td>
+                                        <td id="appointmentReason"
+                                            class="px-6 py-5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                            --
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </section>
+
+                </div>
+
+                <!-- FOOTER -->
+                <footer
+                    class="mt-8 border-t border-slate-200 pt-5 text-center text-xs text-slate-400 dark:border-slate-800">
+
+                    <p>
+                        © 2026 نبض — بوابة متابعة مرضى القلب
+                    </p>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT LINKS -->
+    <script type="module" src="../src/features/patients/patient-details.js"></script>
+
+</body>
+
+</html>

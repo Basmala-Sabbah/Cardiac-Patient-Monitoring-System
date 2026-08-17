@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="h-full">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="../styles/output.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/svg.svg">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>العلامات الحيوية | نبض</title>
+
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+
+    <div class="min-h-screen">
+
+        <!-- MOBILE SIDEBAR OVERLAY -->
+        <div id="sidebarOverlay"
+            class="fixed inset-0 z-40 hidden bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden">
+        </div>
+
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 right-0 z-50 flex w-64 translate-x-full flex-col border-l border-slate-200 bg-white shadow-xl transition-transform duration-300 dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0 lg:shadow-sm">
+
+            <!-- LOGO & CLOSE BUTTON -->
+            <div class="flex items-center justify-between border-b border-slate-100 px-6 py-5 dark:border-slate-800">
+
+                <a href="../index.html" class="group flex items-center gap-3">
+
+                    <div
+                        class="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-600 text-xl text-white shadow-lg shadow-green-600/20 transition duration-300 group-hover:scale-105 group-hover:rotate-3">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h1 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                            نبض
+                        </h1>
+
+                        <p class="mt-1 text-[11px] text-slate-500 dark:text-slate-400">
+                            بوابة متابعة مرضى القلب
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- CLOSE MOBILE SIDEBAR -->
+                <button id="closeSidebar" type="button" aria-label="إغلاق القائمة"
+                    class="flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden">
+
+                    <i class="fa-solid fa-xmark text-lg"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- DOCTOR INFO -->
+            <div
+                class="mx-4 mt-5 rounded-2xl border border-green-100 bg-green-50 p-4 dark:border-green-900/40 dark:bg-green-950/20">
+
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-600 text-white shadow-sm">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">
+                            الطبيب
+                        </p>
+
+                        <p class="mt-1 text-xs text-green-700 dark:text-green-400">
+                            الطاقم الطبي
+                        </p>
+
+                    </div>
+
+                    <span class="mr-auto h-2.5 w-2.5 rounded-full bg-green-500"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <nav class="flex-1 overflow-y-auto px-4 py-6">
+
+                <p class="mb-3 px-3 text-[10px] font-bold tracking-wide text-slate-400">
+                    القائمة الرئيسية
+                </p>
+
+                <div class="space-y-1.5">
+
+                    <!-- DASHBOARD -->
+                    <a href="./dashboard.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-table-columns w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            لوحة التحكم
+                        </span>
+
+                    </a>
+
+
+                    <!-- PATIENTS -->
+                    <a href="./patients.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-users w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            المرضى
+                        </span>
+
+                    </a>
+
+
+                    <!-- VITAL SIGNS ACTIVE -->
+                    <a href="./vital-signs.html"
+                        class="group flex items-center gap-3 rounded-xl bg-green-600 px-4 py-3 text-sm font-bold text-white shadow-md shadow-green-600/10 transition duration-300 hover:bg-green-700 hover:shadow-lg">
+
+                        <i
+                            class="fa-solid fa-wave-square w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            العلامات الحيوية
+                        </span>
+
+                    </a>
+
+
+                    <!-- APPOINTMENTS -->
+                    <a href="./appointments.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-regular fa-calendar-days w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            المواعيد
+                        </span>
+
+                    </a>
+
+
+                    <!-- REPORTS -->
+                    <a href="./Reports.html"
+                        class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition duration-300 hover:translate-x-[-3px] hover:bg-green-50 hover:text-green-700 dark:text-slate-400 dark:hover:bg-green-950/30 dark:hover:text-green-400">
+
+                        <i
+                            class="fa-solid fa-chart-line w-5 text-center transition duration-300 group-hover:scale-110"></i>
+
+                        <span>
+                            التقارير
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- LOGOUT -->
+            <div class="border-t border-slate-100 p-4 dark:border-slate-800">
+
+                <a href="./login.html"
+                    class="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-500 transition duration-300 hover:bg-red-50 hover:text-red-600 dark:text-slate-400 dark:hover:bg-red-950/20 dark:hover:text-red-400">
+
+                    <i
+                        class="fa-solid fa-arrow-right-from-bracket w-5 text-center transition duration-300 group-hover:translate-x-[-3px]"></i>
+
+                    <span>
+                        تسجيل الخروج
+                    </span>
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="min-w-0 lg:mr-64">
+
+            <!-- HEADER -->
+            <header
+                class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
+
+                <div class="flex h-[72px] items-center justify-between px-5 sm:px-6 lg:px-8">
+
+                    <div class="flex items-center gap-3">
+
+                        <!-- MOBILE TOGGLE BUTTON -->
+                        <button id="openSidebar" type="button" aria-label="فتح القائمة"
+                            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden">
+
+                            <i class="fa-solid fa-bars text-lg"></i>
+
+                        </button>
+
+                        <div>
+
+                            <p class="text-[11px] font-medium text-slate-400">
+                                العلامات الحيوية
+                            </p>
+
+                            <p class="mt-0.5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                                بوابة متابعة مرضى القلب
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex items-center gap-2">
+
+                        <!-- DARK MODE -->
+                        <button id="darkModeToggle" type="button" aria-label="تغيير الوضع"
+                            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition duration-300 hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-50 hover:text-green-600 dark:border-slate-700 dark:text-slate-400 dark:hover:border-green-700 dark:hover:bg-green-950/30">
+
+                            <i class="fa-solid fa-moon"></i>
+
+                        </button>
+
+
+                        <!-- NOTIFICATIONS -->
+                        <div class="relative">
+
+                            <button id="notificationButton" type="button" aria-label="الإشعارات" aria-expanded="false"
+                                class="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition duration-300 hover:-translate-y-0.5 hover:border-green-300 hover:bg-green-50 hover:text-green-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-green-700 dark:hover:bg-green-950/30">
+
+                                <i class="fa-regular fa-bell text-lg"></i>
+
+                                <span id="notificationBadge"
+                                    class="absolute -right-1 -top-1 hidden h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">
+                                    0
+                                </span>
+
+                            </button>
+
+
+                            <!-- NOTIFICATION PANEL -->
+                            <div id="notificationPanel"
+                                class="absolute left-0 top-12 z-50 hidden w-80 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900">
+
+                                <div
+                                    class="flex items-center justify-between border-b border-slate-100 px-4 py-3 dark:border-slate-700">
+
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">
+                                        الإشعارات
+                                    </h3>
+
+                                    <button id="markAllRead" type="button"
+                                        class="rounded-md bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+                                        تعليم الكل كمقروء
+                                    </button>
+
+                                </div>
+
+
+                                <div class="px-4 py-2">
+
+                                    <p class="text-[11px] text-slate-400">
+                                        غير مقروء:
+                                        <span id="notificationCount">0</span>
+                                    </p>
+
+                                </div>
+
+
+                                <div id="notificationList" class="max-h-[360px] overflow-y-auto px-3 pb-3">
+
+                                    <div
+                                        class="rounded-lg border border-dashed border-slate-200 px-4 py-5 text-center dark:border-slate-700">
+
+                                        <i
+                                            class="fa-regular fa-bell mb-2 text-xl text-slate-300 dark:text-slate-600"></i>
+
+                                        <p class="text-sm font-bold text-slate-700 dark:text-slate-200">
+                                            لا توجد إشعارات
+                                        </p>
+
+                                        <p class="mt-1 text-[11px] leading-5 text-slate-400">
+                                            ستظهر هنا تنبيهات الحالات والمواعيد.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <div class="p-5 sm:p-6 lg:p-8">
+
+                <!-- ADD VITAL FORM SECTION -->
+                <section
+                    class="mb-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <h3 class="text-base font-extrabold text-slate-800 dark:text-white">
+                        إضافة قراءة حيوية
+                    </h3>
+
+                    <p class="mb-6 text-xs font-medium text-slate-400">
+                        يتم تسجيل القراءة وإظهارها مباشرة ضمن سجل المتابعة وقاعدة البيانات المحفوظة.
+                    </p>
+
+                    <form id="addVitalForm" class="grid grid-cols-1 gap-4 md:grid-cols-4">
+
+                        <div>
+                            <label class="mb-1.5 block text-xs font-bold text-slate-700 dark:text-slate-300">
+                                المريض
+                            </label>
+                            <select id="patientSelect" required
+                                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+                                <option value="">اختر المريض...</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="mb-1.5 block text-xs font-bold text-slate-700 dark:text-slate-300">
+                                نبض القلب (bpm)
+                            </label>
+                            <input type="number" id="heartRateInput" required placeholder="72"
+                                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+                        </div>
+
+                        <div>
+                            <label class="mb-1.5 block text-xs font-bold text-slate-700 dark:text-slate-300">
+                                ضغط الدم (Systolic/Diastolic)
+                            </label>
+                            <input type="text" id="bloodPressureInput" required placeholder="120/80"
+                                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+                        </div>
+
+                        <div>
+                            <label class="mb-1.5 block text-xs font-bold text-slate-700 dark:text-slate-300">
+                                مستوى الأكسجين (%)
+                            </label>
+                            <input type="number" id="oxygenInput" required placeholder="97" min="50" max="100"
+                                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-800 focus:border-emerald-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+                        </div>
+
+                        <div class="mt-2 flex justify-end md:col-span-4">
+                            <button type="submit"
+                                class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-emerald-700">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                <span>حفظ القراءة</span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- FILTERS & TABLE SECTION -->
+                <section
+                    class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <div
+                        class="flex flex-col gap-4 border-b border-slate-100 p-5 dark:border-slate-800 md:flex-row md:items-center md:justify-between">
+
+                        <div class="flex-1">
+                            <input type="text" id="vitalsSearch" placeholder="البحث باسم المريض..."
+                                class="w-full max-w-xs rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold focus:border-emerald-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800">
+                        </div>
+
+                        <div>
+                            <select id="readingStatusFilter"
+                                class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold dark:border-slate-700 dark:bg-slate-800">
+                                <option value="all">كل حالات القراءات</option>
+                                <option value="طبيعي">طبيعي</option>
+                                <option value="تحذير">تحذير</option>
+                                <option value="حرج">حرج</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TABLE -->
+                    <div class="overflow-x-auto">
+
+                        <table class="w-full text-right text-xs">
+
+                            <thead
+                                class="border-b border-slate-100 bg-slate-50 text-slate-500 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400">
+
+                                <tr>
+                                    <th class="px-5 py-3 font-bold">المريض</th>
+                                    <th class="px-5 py-3 font-bold">نبض القلب</th>
+                                    <th class="px-5 py-3 font-bold">ضغط الدم</th>
+                                    <th class="px-5 py-3 font-bold">الأكسجين</th>
+                                    <th class="px-5 py-3 font-bold">حالة المريض</th>
+                                    <th class="px-5 py-3 font-bold">حالة القراءة المحسوبة</th>
+                                    <th class="px-5 py-3 font-bold">وقت التسجيل</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="vitalsTableBody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <!-- Rendered via JS -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer
+                    class="mt-8 border-t border-slate-200 pt-5 text-center text-xs text-slate-400 dark:border-slate-800">
+
+                    <p>
+                        © 2026 نبض — بوابة متابعة مرضى القلب
+                    </p>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT LINKS -->
+    <script type="module" src="../src/features/vital-signs/vital-signs.js"></script>
+
+</body>
+
+</html>
